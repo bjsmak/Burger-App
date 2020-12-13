@@ -1,11 +1,17 @@
 $(function(){
     //Update PUT request, Devoured button
-    $(".devoured-btn").on("click", function(){
+    $(".devoured-btn").on("click", function(event){
+        event.preventDefault();
         const id = $(this).data("id");
+        devouredBurger = {
+            devoured: 1
+        }
 
-        $.ajax("/api/burgers" + id, {
-            type: "PUT"
+        $.ajax("/api/burgers/" + id, {
+            type: "PUT",
+            data: devouredBurger
         }).then(function(){
+            console.log("devoured burger");
             location.reload();
         });
     });
