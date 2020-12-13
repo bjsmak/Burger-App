@@ -3,6 +3,31 @@
     <img src='/assets/img/burger.png' alt='burgerimg' width='200px'>
 </div>
 <div class='container'>
+    <div class="row">
+        <div class="col-sm-6">
+         <ul>
+             {{#each burgers }}
+                  {{#unless   devoured}}
+                  <li>
+                      {{burgerName}}
+                      <button class="devouredbtn">devoured</button>
+                  </li>
+                  {{/unless}}
+             {{/each}}
+         </ul>
+
+        </div>
+        <div class="col-sm-6">
+              {{#each burgers }}
+                {{#if devoured}}
+                <li>
+                    {{burgerName}}
+                </li>
+                {{/if}}
+              {{/each}}  
+        </div>
+    </div>
+
     <div class="row mb-2">
         <div class="col text-center">
             <h2>Add a Burger Here!</h2>
